@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Просмотр районов</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class="header">
+  <h1>Список районов</h1>
+  <a th:href="@{/}" class="button">На главную</a>
+</div>
+<div class="main-content">
+  <table>
+    <thead>
+    <tr>
+      <th>Название</th>
+      <th>Уровень тишины</th>
+      <th>Доступность образовательных услуг</th>
+      <th>Доступность услуг здравоохранения</th>
+      <th>Транспортная доступность</th>
+      <th>Средняя стоимость жилья</th>
+      <th>Благоустроенность</th>
+      <th>Плостность застройки</th>
+      <th>Новизна жилого фонда</th>
+      <th>Безопасность</th>
+      <th>Удаленность от центра города</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="district : ${districts}">
+      <td th:text="${district.getName()}"></td>
+      <td th:text="${district.getQuietness()}"></td>
+      <td th:text="${district.getEducation()}"></td>
+      <td th:text="${district.getHealth()}"></td>
+      <td th:text="${district.getTransport()}"></td>
+      <td th:text="${district.getCost()}"></td>
+      <td th:text="${district.getLivability()}"></td>
+      <td th:text="${district.getDensity()}"></td>
+      <td th:text="${district.getNovelety()}"></td>
+      <td th:text="${district.getSecurity()}"></td>
+      <td th:text="${district.getRemoteness()}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

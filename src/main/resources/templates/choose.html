@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Подбор района</title>
+    <link rel="stylesheet" th:href="@{/css/choose.css}" />
+</head>
+<body>
+<div class="header">
+    <h1>Подобрать район</h1>
+    <a th:href="@{/}" class="button">На главную</a>
+</div>
+<div class="main-content">
+    <form th:action="@{/choose}" method="post">
+        <div class="form-group">
+            <label for="quietness">Насколько для вас важна тишина городского района?</label>
+            <div class="range-container">
+                <span class="range-label">Не важна</span>
+                <input type="range" id="quietness" name="quietness" min="0" max="100" />
+                <span class="range-label">Важна</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="education">Насколько для вас важно наличие большого количества образовательных услуг в районе?</label>
+            <div class="range-container">
+                <span class="range-label">Не важно</span>
+                <input type="range" id="education" name="education" min="0" max="100" />
+                <span class="range-label">Важно</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="health">Насколько для вас важно наличие большого количества услуг здравоохранения в районе?</label>
+            <div class="range-container">
+                <span class="range-label">Не важно</span>
+                <input type="range" id="health" name="health" min="0" max="100" />
+                <span class="range-label">Важно</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="transport">Насколько для вас важна транспортная доступность района?</label>
+            <div class="range-container">
+                <span class="range-label">Не важна</span>
+                <input type="range" id="transport" name="transport" min="0" max="100" />
+                <span class="range-label">Важна</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cost">Сколько денег вы готовы заплатить за жилье?</label>
+            <div class="range-container">
+                <span class="range-label">Мало    </span>
+                <input type="range" id="cost" name="cost" min="0" max="100" />
+                <span class="range-label">Много</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="livability">Насколько для вас важно благоустройство городского района?</label>
+            <div class="range-container">
+                <span class="range-label">Не важно</span>
+                <input type="range" id="livability" name="livability" min="0" max="100" />
+                <span class="range-label">Важно</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="density">Какую плотность городской застройки вы предпочитаете?</label>
+            <div class="range-container">
+                <span class="range-label">Высокую </span>
+                <input type="range" id="density" name="density" min="0" max="100" />
+                <span class="range-label">Низкую</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="novelty">Насколько для вас важна новизна жилого фонда в городском районе?</label>
+            <div class="range-container">
+                <span class="range-label">Не важна</span>
+                <input type="range" id="novelty" name="novelty" min="0" max="100" />
+                <span class="range-label">Важна</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="security">Насколько для вас важна безопасность городского района?</label>
+            <div class="range-container">
+                <span class="range-label">Не важна</span>
+                <input type="range" id="security" name="security" min="0" max="100" />
+                <span class="range-label">Важна</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="remoteness">Насколько для вас важна удаленность района от центра города?</label>
+            <div class="range-container">
+                <span class="range-label">Не важна</span>
+                <input type="range" id="remoteness" name="remoteness" min="0" max="100" />
+                <span class="range-label">Важна</span>
+            </div>
+        </div>
+        <button type="submit">Подобрать</button>
+    </form>
+    <div th:if="${chosenDistrict}" style="margin-top: 20px;" th:text="${chosenDistrict}"></div>
+</div>
+</body>
+</html>

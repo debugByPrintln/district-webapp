@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Web App</title>
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <script>
+    function redirectToDistricts() {
+      window.location.href = '/districts';
+    }
+    function redirectToRate() {
+      window.location.href = '/rate';
+    }
+    function redirectToChoose(){
+      window.location.href = '/choose';
+    }
+  </script>
+</head>
+<body>
+<div class="header" th:if="${authenticated}">
+  <h1>Здравствуйте, <span th:text="${username}"></span>!</h1>
+  <form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+  </form>
+</div>
+<div class="header" th:if="${!authenticated}">
+  <h1>Здравствуйте!</h1>
+  <div class="auth-buttons">
+    <a th:href="@{/login}" class="button">Войти</a>
+    <a th:href="@{/register}" class="button">Регистрация</a>
+  </div>
+</div>
+<div class="main-content">
+  <h2>Приложение для оценки и подбора наиболее комфортабельных районов города для проживания</h2>
+  <div class="button-container">
+    <button class="big-button" th:if="${authenticated}" onclick="redirectToRate()">Оценить район</button>
+    <button class="big-button" onclick="redirectToDistricts()">Просмотр районов</button>
+    <button class="big-button" th:if="${authenticated}" onclick="redirectToChoose()">Подобрать район</button>
+  </div>
+</div>
+</body>
+</html>
